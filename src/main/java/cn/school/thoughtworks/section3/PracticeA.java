@@ -13,7 +13,7 @@ public class PracticeA {
             if (object.containsKey(s1)) {
                     //flag = true;
                     sameElementSet.put(s1,collectionA.get(s1).intValue()-1);
-                    break;
+                    continue;
                 }
         }
 
