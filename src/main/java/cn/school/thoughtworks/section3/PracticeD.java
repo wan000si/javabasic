@@ -18,18 +18,18 @@ public class PracticeD {
                 }
             }
             if (collection3.containsKey(String.valueOf(s1.charAt(0)))) {
-                collection3.put(s1, collection3.get(s1) + sum);
+                collection3.put(String.valueOf(s1.charAt(0)), collection3.get(String.valueOf(s1.charAt(0))) + sum);
             } else {
-                collection3.put(s1,1);
+                collection3.put(String.valueOf(s1.charAt(0)),1);
             }
         }
-        for (String s1:collection3.keySet()) {
+        for (String s2:collection3.keySet()) {
             //boolean flag = false;
-            if (object.containsKey(s1)) {
+            if (object.containsKey(s2)) {
                 //flag = true;
-                if (collection3.get(s1)>3) {
-                    int sub = collection3.get(s1)/3;
-                    sameElementSet.put(s1,collection3.get(s1)-sub);
+                if (collection3.get(s2)>3) {
+                    int sub = collection3.get(s2)/3;
+                    sameElementSet.put(s2,collection3.get(s2)-sub);
                 }
             }
         }
