@@ -25,9 +25,8 @@ public class PracticeC {
                     sameElementSet.put(s1,collection3.get(s1)-sub);
                 }
             }
-            continue;
         }
         return sameElementSet;
-    }           
+    }
 
 }
