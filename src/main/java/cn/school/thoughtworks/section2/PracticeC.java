@@ -10,18 +10,19 @@ public class PracticeC {
         Map<String,Integer> sameElementSet = new HashMap<String, Integer>();
         for (String s1:collection1) {
             int sum=0;
-            for (int i = 0; i < s1.length();++i) {
-                if((i!=s1.length()-1) && ((s1.charAt(i)=='-')|| (s1.charAt(i) == '['))){
-                    for (int j=i+1;(j<s1.length()) && (s1.charAt(j)!=']');++j) {
-                        sum=sum*10+s1.charAt(j)-'0';
-                    }
+            //List<String> collection3 = Arrays.asList(s1.split("-"));
+            String[] collection3= s1.split("\\-|\\[|\\]|\\:");
+            if (collection3.length > 1) {
+                for (int i = 0; i <collection3[1] .length(); i++) {
+                    sum = sum*10 + collection3[1].charAt(i)-'0';
                 }
-                break;
-            }
-            if (sameElementSet.containsKey(String.valueOf(s1.charAt(0)))) {
+            }else
+                sum = 1;
+
+            if (sameElementSet.containsKey(collection3[0])) {
                 sameElementSet.put(String.valueOf(s1.charAt(0)), sameElementSet.get(String.valueOf(s1.charAt(0))) + sum);
             } else {
-                sameElementSet.put(String.valueOf(s1.charAt(0)),1);
+                sameElementSet.put(String.valueOf(s1.charAt(0)),sum);
             }
         }
         return sameElementSet;

@@ -12,25 +12,29 @@ public class PracticeD {
         Map<String,Integer> collection3 = new HashMap<String,Integer>();
         for (String s1:collectionA) {
             int sum=0;
-            for (int i = 0; i < s1.length();++i) {
-                if((i!=s1.length()-1) && s1.charAt(i)=='-'){
-                     sum=sum*10+s1.charAt(i+1)-'0';
+            //List<String> collection3 = Arrays.asList(s1.split("-"));
+            String[] collectiontemp= s1.split("\\-");
+            if (collectiontemp.length > 1) {
+                for (int i = 0; i <collectiontemp[1] .length(); i++) {
+                    sum = sum*10 + collectiontemp[1].charAt(i)-'0';
                 }
-            }
-            if (collection3.containsKey(String.valueOf(s1.charAt(0)))) {
+            }else
+                sum = 1;
+            if (collection3.containsKey(collectiontemp[0])) {
                 collection3.put(String.valueOf(s1.charAt(0)), collection3.get(String.valueOf(s1.charAt(0))) + sum);
             } else {
-                collection3.put(String.valueOf(s1.charAt(0)),1);
+                collection3.put(String.valueOf(s1.charAt(0)),sum);
             }
         }
         for (String s2:collection3.keySet()) {
-            //boolean flag = false;
-            if (object.containsKey(s2)) {
-                //flag = true;
-                if (collection3.get(s2)>3) {
-                    int sub = collection3.get(s2)/3;
-                    sameElementSet.put(s2,collection3.get(s2)-sub);
-                }
+            //System.out.println(s2);
+            for (String s1:object.get("value")) {
+                // System.out.println(s1);
+                if (s2.equals(s1)) {
+                    sameElementSet.put(s2,(collection3.get(s2)-(collection3.get(s2)/3)));
+                    break;
+                }else
+                    sameElementSet.put(s2,collection3.get(s2));
             }
         }
         return sameElementSet;

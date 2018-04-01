@@ -16,14 +16,15 @@ public class PracticeC {
                 collection3.put(s1,1);
             }
         }
-        for (String s1:collection3.keySet()) {
-            //boolean flag = false;
-            if (object.containsKey(s1)) {
-                //flag = true;
-                if (collection3.get(s1)>3) {
-                    int sub = collection3.get(s1)/3;
-                    sameElementSet.put(s1,collection3.get(s1)-sub);
-                }
+        for (String s2:collection3.keySet()) {
+            //System.out.println(s2);
+            for (String s1:object.get("value")) {
+                // System.out.println(s1);
+                if (s2.equals(s1)) {
+                    sameElementSet.put(s2,(collection3.get(s2)-(collection3.get(s2)/3)));
+                    break;
+                }else
+                    sameElementSet.put(s2,collection3.get(s2));
             }
         }
         return sameElementSet;
